@@ -1,0 +1,172 @@
+/* General Properties: */
+$primary-background: #264653;
+$blue-theme: #2A9D8F;
+$white-theme: #F1FAEE;
+$orange-theme: #e9c46a;
+$general-centering: 0 auto;
+
+
+/* For Responsive Layout: */
+$break-small-device: 798px;
+$break-smallest-device: 420px;
+
+@mixin see-layout-measure($media){
+
+    @if $media == small-device {
+         @media only screen and (max-width: $break-small-device) {@content; }
+    }
+
+    @else if $media == smallest-device {
+        @media only screen and (max-width: $break-smallest-device) {@content; }
+    }
+}
+ 
+.welcomeText{
+    background-color: #E9C46A;
+    color: $primary-background;
+    text-align: center;
+    width: 50%;
+    margin: $general-centering;
+    padding: 1%;
+    font-size: 18px;
+    font-weight: 500;
+
+    @include see-layout-measure(small-device){ 
+        width: 100% !important;
+    }
+}
+
+.welcomeText__keyword{
+    color: $blue-theme;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.pageLayout{
+    font-family: Helvetica, sans-serif;   
+    background-color: $primary-background;
+    overflow: hidden !important;
+}
+
+.menu{
+    margin: $general-centering;
+    width: max-content;
+    margin-top: 20px;
+    margin-bottom:20px;
+}
+
+nav{
+
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+  
+    li{ 
+        display: inline-block;
+        padding: 10px;
+        background-color: $blue-theme;
+        color: $white-theme;
+        margin-left: 3px;
+        cursor: pointer;
+        width: 100px;
+        text-align: center;
+        font-size: 17px;
+        font-family: sans-serif;
+
+        &:hover {
+            background-color: #E76F51;
+            color: $white-theme;
+        }
+
+        @include see-layout-measure(small-device){ 
+            display: block;
+            width: 100%;
+            margin-bottom: 4px;
+        }
+    }
+
+    a{   
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;  
+     }
+
+     @include see-layout-measure(small-device){ 
+        width: 50% !important;
+        padding-top: 10px;
+     }
+
+     @include see-layout-measure(smallest-device){ 
+        width: 80% !important;
+        margin-left: 6% !important;
+    }
+  
+}
+
+.formLayout{
+    width: 32%;
+    margin: $general-centering;
+    margin-top: 30px;
+    padding: 30px;
+    padding-bottom: 20px;
+    background: $white-theme;
+    border-top: 5px solid #E63946;
+    margin-bottom: 50px;
+
+    button {
+        padding: 8px;
+        background: $orange-theme;
+        width: 100%;
+        border: 2px solid $blue-theme;
+        color: $primary-background;
+        font-size: 15px;
+        font-family: sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    @include see-layout-measure(small-device){ 
+        width: 50%;
+        margin-left: 23%;
+    }
+
+    @include see-layout-measure(smallest-device){ 
+        width: 71% !important;
+        margin-left: 7% !important;
+    }
+}
+
+.field {
+    margin-bottom: 20px;
+
+    label {
+        font-size: 18px;
+        font-family: sans-serif;
+        color: $primary-background;
+    }
+
+    div {
+        margin-top: 8px;
+        width: auto;
+        box-sizing: content-box;
+        max-width: 96%;
+
+        p{
+            color: #D90429;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            background: #A8DADC;
+            border: none;
+            color: #1D3557;
+        }
+    }
+}

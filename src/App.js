@@ -1,11 +1,14 @@
 import React from 'react';
+import Layout from './components/Layout';
+
 
 function App() {
   return (
     <div>
-      <h2>Hola mundo</h2>
+      <Layout/>
     </div>
   );
 }
 
 export default App;
+ 
