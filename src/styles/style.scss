@@ -115,7 +115,7 @@ nav{
     border-top: 5px solid #E63946;
     margin-bottom: 50px;
 
-    button {
+    .submit {
         padding: 8px;
         background: $orange-theme;
         width: 100%;
@@ -168,5 +168,23 @@ nav{
             border: none;
             color: #1D3557;
         }
+    }
+}
+
+.Cargando{
+    width: 250px;
+    height: 20px;
+    background-color: $primary-background;
+    text-align: center;
+    border-radius: 50px;
+    color:$white-theme;
+    font-weight: bold;
+
+    span{
+        color:$white-theme;
+        margin-top: 50px;
+        position: relative;
+        background-color: red;
+        font-size: 18px;
     }
 }

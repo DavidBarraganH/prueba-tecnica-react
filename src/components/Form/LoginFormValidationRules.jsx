@@ -1,10 +1,10 @@
 export default function validate(values) {
     let errors = {};
 
-    if (!values.name) {
-        errors.name = 'El campo nombre es requerido';
-    }else if (!(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/i).test(values.name.trim())) {
-        errors.name = 'Ingrsa un valor válido.';
+    if (!values.fullname) {
+        errors.fullname = 'El campo nombre completo es requerido';
+    }else if (!(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/i).test(values.fullname.trim())) {
+        errors.fullname = 'Ingrsa un valor válido.';
     }
 
     if (!values.email) {
@@ -15,10 +15,10 @@ export default function validate(values) {
 
     if (!values.phone) {
         errors.phone = 'El campo celular es requerido.';
-    }else if(values.phone == 0){
+    }else if(values.phone <= 0){
         errors.phone = 'El valor debe ser mayor a cero.';
-    }else if (values.phone.length !== 10) {
-        errors.phone = 'El valor debe contener 10 digitos';
+    }else if (values.phone.length >=12) {
+        errors.phone = 'El valor debe contener máximo 12 digitos.';
     }
 
     if (!values.age) {

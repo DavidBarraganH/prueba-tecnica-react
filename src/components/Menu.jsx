@@ -1,7 +1,15 @@
-import React, {useState, Fragment}  from "react";
+import React, {useState, useEffect, Fragment}  from "react";
 import Saludo from './Saludo';
+import { connect } from 'react-redux';
+import { getMenus } from '../actions/userAction';
 
-const Menu = () => {
+
+const Menu = ({menu: {menus}, getMenus}) => {
+
+
+  useEffect(() => {
+    getMenus();
+  }, [getMenus]);
 
     const [nombre, setNombre] = useState();
 
@@ -13,17 +21,20 @@ const Menu = () => {
       <Fragment>
         <nav className="menu">
             <ul>
-                <li onClick={cambiarNombre.bind(this)}  data-id="1" data-value="Vehiculo ban">Vehiculo Ban</li>
-                <li onClick={cambiarNombre.bind(this)}  data-id="2" data-value="Bus">Bus</li>
-                <li onClick={cambiarNombre.bind(this)}  data-id="3" data-value="Helicoptero">Helicoptero</li>
-                <li onClick={cambiarNombre.bind(this)}  data-id="4" data-value="Uber">Uber</li>
-                <li onClick={cambiarNombre.bind(this)}  data-id="5" data-value="Taxi">Taxi</li>
-                <li onClick={cambiarNombre.bind(this)}  data-id="6" data-value="Motocicleta">Motocicleta</li>
+              {menus.map(menu => 
+                  <li onClick={cambiarNombre.bind(this)} key={menu.id} 
+                  data-value={menu.name}>{menu.name}</li>
+              )}
+              
             </ul>
         </nav>
-        <Saludo nombre={nombre}></Saludo>
+        <Saludo nombre={nombre || 'MEDIO DE TRANSPORTE'}></Saludo>
       </Fragment>  
     )
 }
 
-export default Menu;
+const mapStateToProps = state => ({
+  menu:state.menu
+});
+
+export default connect(mapStateToProps, {getMenus})(Menu);
