@@ -24,7 +24,7 @@ export const getMenus = () => async dispatch =>
 export const addUser = formData => async dispatch => {
     const config = {
         headers: {
-            "Content-Type": "application/json"
+            'X-Requested-With': 'XMLHttpRequest'
         }
     };
     try {
